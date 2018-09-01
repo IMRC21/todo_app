@@ -1,18 +1,12 @@
 //js file
-
-
-var counter = 0;
-var value_of_input;
-var part1 = "<ons-list-item tappable id='";
-var part2 = "'><label class='left'><ons-checkbox input-id='check-";
-var part3 = "'></ons-checkbox></label>";
-var part4 = "</ons-list-item tappable>";
-var all;
-var justTest;
+ons.ready(function(){
+    ons.disableAutoStyling();
+});
 
 var part1 = "<ons-list-item tappable><label class='left'><ons-checkbox :change='removeItem' input-id='check-";
 var part2 = "'></ons-checkbox></label> <label for='check-";
 var part3 = "' class='center'><slot></slot></label></ons-list-item>"
+
 
 window.onload = function () {
     
@@ -29,8 +23,6 @@ window.onload = function () {
        },
        methods: {
            addElement(){
-            counter++;
-            console.log(counter);
             this.elements.push(this.temp_v);
 			this.temp_v = "";
            },
@@ -41,15 +33,6 @@ window.onload = function () {
 
        }
     });
-
-    Vue.component("myTodo",{
-        // data: function(){
-        //     return
-        //      {
-        //      }
-        // },
-        template: part1 + counter + part2 + counter + part3 
-        });
     
     var completedInstance = new Vue({
         el: "#completedTasks",

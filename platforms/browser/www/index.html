@@ -6,14 +6,27 @@
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD7HOSO27Dn59I4_O2u_MDUzt7ucipnlfs",
+        authDomain: "todo-app-9f9a7.firebaseapp.com",
+        databaseURL: "https://todo-app-9f9a7.firebaseio.com",
+        projectId: "todo-app-9f9a7",
+        storageBucket: "todo-app-9f9a7.appspot.com",
+        messagingSenderId: "912430718484"
+    };
+    firebase.initializeApp(config);
+    </script>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
     
 </head>
 <body>
     <ons-page>
-        <ons-toolbar>
+        <ons-toolbar style="padding-top: 0px;">
             <div class="center">
                 To do
             </div>
@@ -62,7 +75,7 @@
                                 <ons-checkbox @click="removeItem(index)" input-id="check-1"></ons-checkbox>
                             </label> -->
                             <label @click="removeItem(index)" class="center">
-                                {{ element }}
+                                {{ index +1 }}. {{ element }}
                             </label>
                             </ons-list-item>
 
@@ -95,7 +108,7 @@
                     <ons-list id="main_list">
                     <ons-list-item modifier="nodivider" v-for="(complete, index) in completed" :key="complete.id" tappable>
                     <label vclass="center">
-                        {{ complete }}
+                       {{ index + 1 }}.  {{ complete }}
                     </label>
                     </ons-list-item>
                     </ons-list>
