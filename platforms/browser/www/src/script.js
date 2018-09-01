@@ -3,11 +3,6 @@ ons.ready(function(){
     ons.disableAutoStyling();
 });
 
-var part1 = "<ons-list-item tappable><label class='left'><ons-checkbox :change='removeItem' input-id='check-";
-var part2 = "'></ons-checkbox></label> <label for='check-";
-var part3 = "' class='center'><slot></slot></label></ons-list-item>"
-
-
 window.onload = function () {
     
     var toCompleteInstance = new Vue({
@@ -17,7 +12,6 @@ window.onload = function () {
             elements:[
             ],
             completed:[
-                
             ]
             //myIndex = index
        },
