@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <!--    IF ANYONE ENTERS SAY HI SO I KNOW I'M NOT TALKING ALONE LIKE A CRAZY DUMB   -->
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    
+</head>
+<body>
+    <ons-page>
+        <ons-toolbar>
+            <div class="center">
+                To do
+            </div>
+        </ons-toolbar>
+        <ons-tabbar swipeable position="auto">
+            <ons-tab page="tab1.html" label="Activity" icon="md-swap-vertical">
+            </ons-tab>
+            <ons-tab page="main-todo.html" label="Tasks" icon="md-fire" active>
+            </ons-tab> 
+            
+            <ons-tab page="tab3.html" label="Completed" icon="ion-checkmark">
+            </ons-tab>
+        </ons-tabbar>    
+    </ons-page>
+
+    <template id="tab1.html">
+        <ons-page id="tab1">
+            
+        </ons-page>
+    </template>
+    
+    <template id="main-todo.html">
+        <ons-page id="main-tab">
+            <ons-page>
+                    <div id="root">
+                    <ons-list id="main_list">
+                        <div style="margin-top: 10px;">
+                        <!-- <ons-input id="input_todo" placeholder="New Item"></ons-input> -->
+                        <input style="padding:10px;width: 100%;" v-model="temp_v" type="text" placeholder="New Item" class="text-input">
+                        <!-- <input v-model="temp_v"> -->
+                        <ons-button id="input_btn" @click="addElement" modifier="large">Send</ons-button>
+                        </div>
+                        
+                            <!-- <my-todo v-for="(element, index) in elements" :key="element.id">
+                                {{ element }}
+                            </my-todo> -->
+                            <!-- <my-todo>
+                                {{ myList[1] }}
+                            </my-todo>
+                            <my-todo>
+                                {{ myList[2] }}
+                            </my-todo> -->
+                            
+                            <ons-list-item modifier="nodivider" v-for="(element, index) in elements" :key="element.id" tappable>
+                            <!-- <label class="left">
+                                <ons-checkbox @click="removeItem(index)" input-id="check-1"></ons-checkbox>
+                            </label> -->
+                            <label @click="removeItem(index)" class="center">
+                                {{ element }}
+                            </label>
+                            </ons-list-item>
+
+                        <!-- <ons-list-item tappable>
+                        <label class="left">
+                            <ons-checkbox input-id="check-1"></ons-checkbox>
+                        </label>
+                        <label for="check-1" class="center">
+                            Lava per terra stronzo
+                        </label>
+                        </ons-list-item>
+                        <ons-list-item tappable>
+                        <label class="left">
+                            <ons-checkbox input-id="check-2"></ons-checkbox>
+                        </label>
+                        <label for="check-2" class="center">
+                            Mangia imbecille così non muori
+                        </label>
+                        </ons-list-item> -->
+                    </div>
+                    </ons-list>
+                </ons-page>
+        </ons-page>
+    </template>
+    
+
+    <template id="tab3.html">
+        <ons-page id="Tab3">
+            <div id="completedTasks">
+                    <ons-list id="main_list">
+                    <ons-list-item modifier="nodivider" v-for="(complete, index) in completed" :key="complete.id" tappable>
+                    <label vclass="center">
+                        {{ complete }}
+                    </label>
+                    </ons-list-item>
+                    </ons-list>
+            </div>
+        </ons-page>
+    </template>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="src/script.js"></script>
+    <script>
+        ons.disableAutoStyling();
+    </script>
+	<script type="text/javascript" src="cordova.js"></script>
+</body>
+</html>
+
+
+
